@@ -19,9 +19,7 @@ from sensor_msgs.msg import JointState
 import sounddevice as sd
 from vosk import Model, KaldiRecognizer
 
-# =========================
-# CONFIG
-# =========================
+
 MODEL_PATH = "/home/harish/Downloads/resnet_knee_model.pth"
 DATA_PATH = "/home/harish/Downloads/dataset for hackathon"
 CSV_PATH = "/home/harish/Downloads/dataset for hackathon/metadata.csv"
@@ -29,19 +27,14 @@ VOSK_MODEL_PATH = "vosk-model-small-en-us-0.15"
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# =========================
-# REGION DESCRIPTIONS
-# Tells the user (and robot speech) what each region physically means
-# =========================
+
 REGION_DESCRIPTIONS = {
     "left":  "the medial side of the knee, focusing on the inner ligament bundle",
     "right": "the lateral side of the knee, focusing on the outer ligament bundle",
     "knee":  "the central knee region, focusing on the mid-substance of the ACL"
 }
 
-# =========================
-# VOICE OUTPUT
-# =========================
+
 engine = pyttsx3.init()
 engine.setProperty('rate', 135)
 
@@ -50,9 +43,6 @@ def speak(text):
     engine.say(text)
     engine.runAndWait()
 
-# =========================
-# VOICE INPUT
-# =========================
 q = queue.Queue()
 
 def callback(indata, frames, time_, status):
@@ -73,33 +63,11 @@ def listen_voice():
                 print("You said:", text)
                 return text.lower()
 
-# =========================
-# COMMAND INTERPRETER
-# Handles natural phrases, homophones, and similar-sounding words.
-#
-# ORDER MATTERS — multi-word phrases are checked before single words
-# so "go left" hits LEFT not POSITIVE, "next right" hits NEXT not RIGHT.
-#
-# LEFT  : left, lef, lift, loft, medial, inner, inside, inward
-# RIGHT : right, rite, write, reit, lateral, outer, outside, outward
-# KNEE  : knee, nee, need, ni, center, central, middle, mid, core, acl
-# NEXT  : next, necks, text, skip, after, forward, onwards
-# GO    : go, goe, doe, dough, confirmed, confirm, yes, yeah, yep, yup,
-#         okay, ok, sure, correct, proceed, execute, do it, go for it,
-#         go ahead, sounds good, that's right, make it so, let's go,
-#         move there, take it, approved, affirmative, accept, perfect
-# STOP  : stop, stopped, no, nope, nah, negative, cancel, abort, quit,
-#         exit, end, done, finish, finished, halt, shutdown, shut down,
-#         that's enough, enough, terminate
-# WAIT  : wait, weight, wade, late, pause, hold, standby, freeze, stay,
-#         hang on, hold on, not yet, one moment, just a moment
-# RESUME: resume, rezoom, result, continue, start, go on, carry on,
-#         unpause, back, i'm ready, ready, let's continue
+
 # =========================
 def interpret_command(text):
     t = text.lower().strip()
 
-    # --- multi-word phrase shortcuts (checked first to avoid partial matches) ---
     POSITIVE_PHRASES = [
         "go for it", "go ahead", "go for", "sounds good", "make it so",
         "let's go", "lets go", "move there", "that's right", "thats right",
@@ -128,13 +96,11 @@ def interpret_command(text):
         if p in t:
             return "negative"
 
-    # --- NEXT before RIGHT/LEFT so "next right" → next, not right ---
     if any(w in t for w in [
         "next", "necks", "text", "skip", "after", "forward", "onwards"
     ]):
         return "next"
 
-    # --- region commands ---
     if any(w in t for w in [
         "left", "lef", "lift", "loft", "medial", "inner", "inside", "inward"
     ]):
@@ -150,7 +116,6 @@ def interpret_command(text):
     ]):
         return "knee"
 
-    # --- go / confirm ---
     if any(w in t for w in [
         "go", "goe", "doe", "dough",
         "confirm", "confirmed", "yes", "yeah", "yep", "yup",
@@ -159,7 +124,6 @@ def interpret_command(text):
     ]):
         return "positive"
 
-    # --- stop / shutdown ---
     if any(w in t for w in [
         "stop", "stopped", "no", "nope", "nah", "negative",
         "cancel", "abort", "quit", "exit", "end",
@@ -167,14 +131,12 @@ def interpret_command(text):
     ]):
         return "negative"
 
-    # --- wait / standby ---
     if any(w in t for w in [
         "wait", "weight", "wade", "late",
         "pause", "hold", "standby", "freeze", "stay"
     ]):
         return "wait"
 
-    # --- resume ---
     if any(w in t for w in [
         "resume", "rezoom", "result", "continue", "start",
         "unpause", "back", "ready"
@@ -183,9 +145,7 @@ def interpret_command(text):
 
     return "unknown"
 
-# =========================
-# ROBOT CONTROL
-# =========================
+
 class FrankaStaticPositionNode(Node):
     def __init__(self, mode):
         super().__init__('franka_node')
@@ -286,11 +246,6 @@ def get_loc(cam):
         return "right"
     return "knee"
 
-# =========================
-# GET SAMPLE
-# Collects all abnormal (partial/complete tear) volumes on first call,
-# then picks one at random each time — no repeats until all are exhausted.
-# =========================
 _sample_pool = []
 _used_samples = []
 
