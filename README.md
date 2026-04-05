@@ -35,6 +35,6 @@ Key Workflow Stages:
 5. Dynamic Control States: The system supports real-time interrupts, including Wait, Resume, and Manual Override commands, allowing the surgeon to maintain full authority over the robotic hardware.
  
 
-<img width="1680" height="638" alt="Gemini_Generated_Image_nl9rbwnl9rbwnl9r" src="https://github.com/user-attachments/assets/05bda4cc-f5ce-4acc-8960-1cfc8f1183a4" />
+<img width="1680" height="575" alt="Gemini_Generated_Image_nl9rbwnl9rbwnl9r_copy" src="https://github.com/user-attachments/assets/316391e4-271b-485c-8f9c-336d509bad66" />
 
 
