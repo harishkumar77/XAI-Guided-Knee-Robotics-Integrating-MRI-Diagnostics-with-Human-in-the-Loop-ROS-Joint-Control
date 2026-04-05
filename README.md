@@ -26,6 +26,7 @@ System Architecture
 4. Execution Phase: Upon a "Positive" voice command (e.g., "Go for it"), a ROS2 node publishes target joint configurations to Isaac Sim.
 
 System Architecture & Operational Workflow
+
 The following flowchart illustrates the End-to-End Multimodal Pipeline of the project. The system is designed to bridge the gap between Deep Learning-based Diagnostics and Robotic Actuation through a high-fidelity simulation in NVIDIA Isaac Sim.
 
 Key Workflow Stages:
