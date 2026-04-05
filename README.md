@@ -7,15 +7,16 @@ This project, developed for ScarletHacks 2026, implements a closed-loop system f
 
 Core Features
 
-1. Computer Vision: ResNet18-based classification of ACL healthy vs. partial/complete tears.Explainable AI (XAI): Grad-CAM heatmaps localize the "Region of Interest" (ROI) to justify diagnostic decisions.
-2. Robotics: ROS2 node commanding a Franka Panda manipulator via JointState messages for specific anatomical viewing angles.
-3. HRI (Human-Robot Interaction): Voice-activated command interpreter using Vosk for supervisor-led robot navigation (Wait, Resume, Stop, and Directional overrides).
-4. Tech StackML Framework: PyTorch (Torchvision ResNet18).
-5. Robotics: ROS2 (Humble/Foxy), Joint Trajectory Control.
-6. Simulation: NVIDIA Isaac Sim.
-7. Voice Processing: Vosk (Speech-to-Text),
-8. Pyttsx3 (Text-to-Speech).Logic:
-9.  Python 3.x, NumPy, OpenCV, Matplotlib.
+1. Computer Vision: ResNet18-based classification of ACL healthy vs. partial/complete tears.
+2. Explainable AI (XAI): Grad-CAM heatmaps localize the "Region of Interest" (ROI) to justify diagnostic decisions.
+3. Robotics: ROS2 node commanding a Franka Panda manipulator via JointState messages for specific anatomical viewing angles.
+4. HRI (Human-Robot Interaction): Voice-activated command interpreter using Vosk for supervisor-led robot navigation (Wait, Resume, Stop, and Directional overrides).
+5. Tech StackML Framework: PyTorch (Torchvision ResNet18).
+6. Robotics: ROS2 (Humble/Foxy), Joint Trajectory Control.
+7. Simulation: NVIDIA Isaac Sim.
+8. Voice Processing: Vosk (Speech-to-Text),
+9. Pyttsx3 (Text-to-Speech).Logic:
+10.  Python 3.x, NumPy, OpenCV, Matplotlib.
 
 System Architecture
 
