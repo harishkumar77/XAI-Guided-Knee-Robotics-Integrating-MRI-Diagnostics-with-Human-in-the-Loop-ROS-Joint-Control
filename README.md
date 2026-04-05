@@ -1,8 +1,5 @@
 # XAI Guided Knee Robotics Integrating MRI Diagnostics with Human in the Loop ROS Joint Control
 
-Multi-Modal Surgical Robotics: XAI-Guided Knee Diagnostics & ROS Joint Control
-Overview
-
 This project, developed for ScarletHacks 2026, implements a closed-loop system for automated knee surgery assistance. By integrating Explainable AI (XAI) with Human-in-the-Loop (HITL) robotics, the system analyzes MRI scans, localizes ACL tears, and orchestrates robotic camera positioning via voice commands within NVIDIA Isaac Sim.
 
 Core Features
