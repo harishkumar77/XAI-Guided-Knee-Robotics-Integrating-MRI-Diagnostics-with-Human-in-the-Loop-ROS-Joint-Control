@@ -34,7 +34,7 @@ Key Workflow Stages:
 4. Joint-Space Actuation: Upon receiving a "Positive" voice trigger (e.g., "Go for it"), the ROS 2 node translates the diagnostic intent into specific JointState configurations for the Franka Emika Panda manipulator.
 5. Dynamic Control States: The system supports real-time interrupts, including Wait, Resume, and Manual Override commands, allowing the surgeon to maintain full authority over the robotic hardware.
  
+<img width="1680" height="575" alt="573916886-316391e4-271b-485c-8f9c-336d509bad66" src="https://github.com/user-attachments/assets/f92d589d-ff79-4e88-9b02-0ca759440284" />
 
-<img width="1680" height="575" alt="Gemini_Generated_Image_nl9rbwnl9rbwnl9r_copy" src="https://github.com/user-attachments/assets/316391e4-271b-485c-8f9c-336d509bad66" />
 
 
