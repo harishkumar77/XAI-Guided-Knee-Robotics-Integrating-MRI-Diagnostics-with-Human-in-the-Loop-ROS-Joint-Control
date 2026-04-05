@@ -33,7 +33,8 @@ Key Workflow Stages:
 3. Human-in-the-Loop (HITL) Supervision: To ensure surgical safety, the robot does not move autonomously. It suggests a viewing angle (Left, Right, or Center) and waits for a Voice Command via the Vosk interpreter.
 4. Joint-Space Actuation: Upon receiving a "Positive" voice trigger (e.g., "Go for it"), the ROS 2 node translates the diagnostic intent into specific JointState configurations for the Franka Emika Panda manipulator.
 5. Dynamic Control States: The system supports real-time interrupts, including Wait, Resume, and Manual Override commands, allowing the surgeon to maintain full authority over the robotic hardware.
-6. 
-<img width="1680" height="638" alt="Gemini_Generated_Image_nl9rbwnl9rbwnl9r" src="https://github.com/user-attachments/assets/d67d1e13-de38-4240-a244-b3a69a4e538c" />
+ 
+
+<img width="1680" height="638" alt="Gemini_Generated_Image_nl9rbwnl9rbwnl9r" src="https://github.com/user-attachments/assets/05bda4cc-f5ce-4acc-8960-1cfc8f1183a4" />
 
 
