@@ -1,1 +1,1 @@
-# XAI-Guided-Knee-Robotics-Integrating-MRI-Diagnostics-with-Human-in-the-Loop-ROS-Joint-Control
+# XAI Guided Knee Robotics Integrating MRI Diagnostics with Human in the Loop BOS Joint Control
