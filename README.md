@@ -1,5 +1,5 @@
 # KneeSight: XAI-Driven Diagnostic Robotics
-# Precision Point: Intelligent Robotics for Smarter Knee Surgery 
+## Precision Point: Intelligent Robotics for Smarter Knee Surgery 
 
 This project, developed for ScarletHacks 2026, implements a closed-loop system for automated knee surgery assistance. By integrating Explainable AI (XAI) with Human-in-the-Loop (HITL) robotics, the system analyzes MRI scans, localizes ACL tears, and orchestrates robotic camera positioning via voice commands within NVIDIA Isaac Sim.
 
